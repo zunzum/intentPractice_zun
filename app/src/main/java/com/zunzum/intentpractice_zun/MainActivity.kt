@@ -10,6 +10,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+        sendMessageBtn.setOnClickListener {
+            val inputMessage = messageEdit.text.toString()
+            val myIntent = Intent(this,MessageActivity::class.java)
+            myIntent.putExtra("message",inputMessage)
+        }
+
         moveToOtherBtn.setOnClickListener {
             val myIntent = Intent(this,OtherActivity::class.java)
             startActivity(myIntent)
