@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
             val inputMessage = messageEdit.text.toString()
             val myIntent = Intent(this,MessageActivity::class.java)
             myIntent.putExtra("message",inputMessage)
+            startActivity(myIntent)
         }
 
         moveToOtherBtn.setOnClickListener {
