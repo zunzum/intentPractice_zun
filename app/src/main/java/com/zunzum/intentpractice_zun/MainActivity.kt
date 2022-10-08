@@ -1,6 +1,7 @@
 package com.zunzum.intentpractice_zun
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -12,6 +13,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //Dial 액션 예제
+        dialBtn.setOnClickListener {
+            //phoneNumEdt에 입력한 전화번호를 받아서 => 해당 번호에 전화 연결
+            val inputPhoneNumber = phoneNumEdt.text.toString()
+            val myUri = Uri.parse("tel:${inputPhoneNumber}")
+
+            val myintent = Intent(Intent.ACTION_DIAL, myUri)
+
+            startActivity(myintent)
+        }
 
         editNicknameBtn.setOnClickListener {
             val myIntent = Intent(this,EditNicknameActivity::class.java)
