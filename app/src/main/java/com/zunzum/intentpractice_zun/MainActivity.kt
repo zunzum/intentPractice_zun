@@ -12,6 +12,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //CALL 액션 예제
+        callBtn.setOnClickListener {
+            //phoneNumEdt에 입력한 전화번호를 받아서 => 해당 번호에 전화 연결
+            val inputPhoneNumber = phoneNumEdt.text.toString()
+            val myUri = Uri.parse("tel:${inputPhoneNumber}")
+
+            val myintent = Intent(Intent.ACTION_CALL, myUri)
+
+            startActivity(myintent)
+        }
 
         //Dial 액션 예제
         dialBtn.setOnClickListener {
